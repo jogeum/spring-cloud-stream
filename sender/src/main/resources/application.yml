@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        helloChannel: #채널 이름
+          destination: sayHello #queue 이름
+          content-type: application/json
+
+        bellChannel: #채널 이름
+          destination: dingDong #queue 이름
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+server:
+  port: 8081
+
+logging:
+  level:
+    net.jogeum: DEBUG
