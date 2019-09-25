@@ -17,15 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/messages")
 public class MessageController {
     private MessageService messageService;
-
     public MessageController(MessageService messageService) {
         this.messageService = messageService;
     }
 
-    @GetMapping
+    @GetMapping("/hi")
     public ResponseEntity hi(@RequestParam String name, @RequestParam String message) {
         log.debug("name:" + name + ", message:" + message);
         messageService.hi(name, message);
+
+        return ResponseEntity.ok("");
+    }
+
+    @GetMapping("/hola")
+    public ResponseEntity hola(@RequestParam String name, @RequestParam String message) {
+        log.debug("name:" + name + ", message:" + message);
+        messageService.hola(name, message);
 
         return ResponseEntity.ok("");
     }

@@ -5,17 +5,21 @@ spring:
     stream:
       bindings:
         helloChannel: #채널 이름
-          destination: sayHello #queue 이름
+          destination: hello #queue 이름
           content-type: application/json
           group: helloGroup #group 이름
 
-        bellChannel: #채널 이름
+        dingDongChannel: #채널 이름
           destination: dingDong #queue 이름
           content-type: application/json
-          group: bellGroup #group 이름
+          group: dingDongGroup #group 이름
+
+        input: #기본 채널 이름
+          destination: hola #queue 이름
+          content-type: application/json
+          group: holaGroup #group 이름
       kafka:
         binder:
-          zkNodes: localhost
           brokers: localhost
 
 server:

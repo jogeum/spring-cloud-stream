@@ -1,20 +1,20 @@
 package net.jogeum.streamreceiver.event.receiver;
 
 import lombok.extern.slf4j.Slf4j;
-import net.jogeum.streamreceiver.event.Hello;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Sink;
 
 /**
  * @author jogeum
  * @since 17/09/2019
  */
 @Slf4j
-@EnableBinding(Hello.class)
-public class HelloReceiver {
+@EnableBinding(Sink.class)
+public class HolaReceiver {
 
-    @StreamListener(target = Hello.INPUT)
-    public void receive(String helloMessage) {
-        log.debug("helloMessage:" + helloMessage);
+    @StreamListener(target = Sink.INPUT)
+    public void receive(String holaMessage) {
+        log.debug("holaMessage:" + holaMessage);
     }
 }

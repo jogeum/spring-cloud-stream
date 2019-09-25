@@ -8,7 +8,7 @@ import org.springframework.messaging.MessageChannel;
  * @since 17/09/2019
  */
 public interface DingDong {
-    String OUTPUT = "bellChannel";
+    String OUTPUT = "dingDongChannel";
 
     @Output(DingDong.OUTPUT)
     MessageChannel output();

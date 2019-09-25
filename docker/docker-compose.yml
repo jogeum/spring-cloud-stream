@@ -1,22 +1,22 @@
 version: '3'
 services:
-  zookeeper:
+  test_zookeeper:
     image: wurstmeister/zookeeper
-    container_name: zookeeper
+    container_name: test_zookeeper
     restart: always
     ports:
       - 2181:2181
 
-  kafkaserver:
+  test_kafka:
     image: wurstmeister/kafka
-    container_name: kafka
+    container_name: test_kafka
     restart: always
     ports:
       - 9092:9092
     depends_on:
-      - zookeeper
+      - test_zookeeper
     links:
-      - zookeeper:zookeeper
+      - test_zookeeper:test_zookeeper
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: test_zookeeper:2181
