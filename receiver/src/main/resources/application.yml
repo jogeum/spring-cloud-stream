@@ -4,12 +4,12 @@ spring:
   cloud:
     stream:
       bindings:
-        helloChannel: #채널 이름
+        helloInput: #채널 이름
           destination: hello #queue 이름
           content-type: application/json
           group: helloGroup #group 이름
 
-        dingDongChannel: #채널 이름
+        dingDongInput: #채널 이름
           destination: dingDong #queue 이름
           content-type: application/json
           group: dingDongGroup #group 이름

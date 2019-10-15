@@ -8,6 +8,11 @@ Spring Cloud Stream 의 동작을 확인 하기 위해 kafka server 를 docker-c
 docker-compose -f ./docker/docker-compose.yml up -d
 ```
 
+docker-compose 종료
+```shell script
+docker-compose -f ./docker/docker-compose.yml stop
+```
+
 ## 2. sender service 시작
 
 message 전송을 확인하기 위한 sender service 를 시작한다.

@@ -7,9 +7,9 @@ import org.springframework.messaging.SubscribableChannel;
  * @author jogeum
  * @since 17/09/2019
  */
-public interface DingDong {
-    String INPUT = "dingDongChannel";
+public interface HelloInput {
+    String INPUT = "helloInput";
 
-    @Input(DingDong.INPUT)
+    @Input(HelloInput.INPUT)
     SubscribableChannel input();
 }

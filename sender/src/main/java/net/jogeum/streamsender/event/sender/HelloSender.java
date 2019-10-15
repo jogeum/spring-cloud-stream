@@ -1,10 +1,9 @@
 package net.jogeum.streamsender.event.sender;
 
 import lombok.extern.slf4j.Slf4j;
-import net.jogeum.streamsender.event.Hello;
+import net.jogeum.streamsender.event.HelloOutput;
 import net.jogeum.streamsender.event.model.HelloMessage;
 import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
@@ -14,12 +13,12 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@EnableBinding(Hello.class)
+@EnableBinding(HelloOutput.class)
 public class HelloSender {
-    private MessageChannel helloChannel;
+    private HelloOutput hello;
 
-    public HelloSender(MessageChannel helloChannel) {
-        this.helloChannel = helloChannel;
+    public HelloSender(HelloOutput hello) {
+        this.hello = hello;
     }
 
     public void send(String name, String message) {
@@ -29,7 +28,7 @@ public class HelloSender {
                 .message(message)
                 .build();
 
-        helloChannel
+        hello.output()
                 .send(MessageBuilder.withPayload(helloMessage).build());
     }
 }

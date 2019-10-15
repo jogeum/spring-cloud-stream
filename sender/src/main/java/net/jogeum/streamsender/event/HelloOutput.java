@@ -7,9 +7,9 @@ import org.springframework.messaging.MessageChannel;
  * @author jogeum
  * @since 17/09/2019
  */
-public interface DingDong {
-    String OUTPUT = "dingDongChannel";
+public interface HelloOutput {
+    String OUTPUT = "helloOutput";
 
-    @Output(DingDong.OUTPUT)
+    @Output(HelloOutput.OUTPUT)
     MessageChannel output();
 }
